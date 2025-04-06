@@ -1,0 +1,555 @@
+/* App background setup */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('./pro.png'); /* Set pro.png as background */
+  background-position: center; /* Center the background */
+  background-size: cover; /* Ensure the image covers the entire screen */
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Keep the background fixed as the user scrolls */
+  background-color: rgba(162, 156, 156, 0.7); /* Semi-transparent white overlay to fade the image */
+}
+
+//* App background setup */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #dccaca; /* Light neutral background color */
+  color: #333; /* Dark text for better readability */
+}
+
+/* Content container */
+.App {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.75), rgba(240, 240, 255, 0.6));
+  padding: 30px 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), 0 0 0 2px rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 90%;
+  max-width: 700px;
+  text-align: left;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: fadeInBox 1s ease-in-out forwards;
+}
+
+@keyframes fadeInBox {
+  0% {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.App:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+/* Heading */
+h1 {
+  font-size: 2.2rem;
+  color: #444;
+  margin-bottom: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Input container layout */
+.input-container {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+/* Input fields */
+input, select {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus {
+  border-color: #8e8e8e; /* Soft focus border */
+}
+
+/* Add Task Button */
+button {
+  background: #6c757d; /* Neutral button color */
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #495057; /* Darker shade on hover */
+}
+
+/* Task List styles */
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.task-list li {
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.task-list li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.task-list li.completed {
+  background-color: #e0e0e0;
+  text-decoration: line-through;
+}
+
+.task-category, .task-priority, .task-due-date {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-left: 12px;
+}
+
+.task-category {
+  background-color: #adb5bd;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.task-priority {
+  font-weight: bold;
+}
+
+.task-due-date {
+  font-style: italic;
+}
+
+/* Remove Task Button */
+.task-list button {
+  background: transparent;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.task-list button:hover {
+  color: #c82333;
+}
+
+/* Filters */
+.filters {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.filters button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #6c757d;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.filters button:hover {
+  text-decoration: underline;
+  color: #495057;
+}
+
+/* Task Completion Tracker */
+.task-tracker {
+  margin-bottom: 25px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #6c757d;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Calendar Styles */
+.calendar {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.calendar-input {
+  padding: 12px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.calendar-tasks {
+  margin-top: 15px;
+}
+
+.calendar-task {
+  background-color: #f8f8f8;
+  padding: 12px;
+  margin: 5px 0;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Checkbox styles */
+.checkbox {
+  cursor: pointer;
+  margin-right: 15px;
+  transform: scale(1.2);
+}
+
+/* Contact Section Styling */
+.contact-section {
+  background: #ffffff; /* Light background for contact form */
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 700px;
+  margin-top: 50px;
+}
+
+
+.contact-section h2 {
+  font-size: 2rem;
+  color: #444;
+  margin-bottom: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #8e8e8e; /* Soft focus border */
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.contact-form button {
+  background: #6c757d;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  width: 100%;
+}
+
+.contact-form button:hover {
+  background: #495057; /* Darker shade on hover */
+}
+
+/* Comments Section Styling */
+.comments-section {
+  background: #ffffff; /* Light background for comments */
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 700px;
+  margin-top: 50px;
+}
+
+.comments-section h3 {
+  font-size: 1.8rem;
+  color: #444;
+  margin-bottom: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.comment {
+  background: #f8f8f8;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.comment p {
+  margin: 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+.comment .author {
+  font-weight: bold;
+  color: #0072ff;
+}
+
+.comment .date {
+  font-style: italic;
+  color: #6c757d;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .input-container {
+    flex-direction: column;
+  }
+
+  .input-container input, 
+  .input-container select,
+  .input-container button {
+    margin-bottom: 12px;
+  }
+
+  .task-list li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contact-section,
+  .comments-section {
+    width: 100%;
+    margin-top: 30px;
+  }
+}
+/* Heading */
+h1 {
+  font-size: 2.2rem;
+  color: #444;
+  margin-bottom: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-align: center; /* Centered heading */
+}
+
+/* Contact Form Styling */
+.contact-form {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 640px;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.contact-form h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.contact-form .form-group {
+  margin-bottom: 15px;
+}
+
+.contact-form .form-group input,
+.contact-form .form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.contact-form .form-group input:focus,
+.contact-form .form-group textarea:focus {
+  border-color: #495057;
+  outline: none;
+}
+
+.contact-form .form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.contact-form button {
+  background-color: #495057;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #495057;
+}
+
+/* Focus Effect */
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #5b9bd5;
+}
+
+/* Success message (optional) */
+.success-message {
+  background-color: #d4edda;
+  color: #495057;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 20px;
+  text-align: center; /* Centered heading */
+}
+/* General Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7fc;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.App-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Heading */
+h1, .contact-form h2 {
+  font-size: 2.2rem;
+  color: #444;
+  margin-bottom: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-align: center; /* Centered heading */
+}
+
+/* Contact Form Styling */
+.contact-form {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.contact-form .form-group {
+  margin-bottom: 15px;
+}
+
+.contact-form .form-group input,
+.contact-form .form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.contact-form .form-group input:focus,
+.contact-form .form-group textarea:focus {
+  border-color: #5b9bd5;
+  outline: none;
+}
+
+.contact-form .form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.contact-form button {
+  background-color: #495057;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #495057;
+}
+
+/* Focus Effect */
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #5b9bd5;
+}
+
+/* Success message (optional) */
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 20px;
+  text-align: center;
+}
